@@ -12,7 +12,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/IntelligenceX/fileconversion/html2text"
+	"github.com/charles-d-burton/fileconversion/html2text"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/ssor/bom"
 	"golang.org/x/net/html"

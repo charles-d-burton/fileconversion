@@ -13,9 +13,8 @@ import (
 	"archive/zip"
 	"errors"
 	"io"
-	"io/ioutil"
 
-	"github.com/IntelligenceX/fileconversion/html2text"
+	"github.com/charles-d-burton/fileconversion/html2text"
 )
 
 // ODT2Text extracts text of an OpenDocument Text file
@@ -82,7 +81,7 @@ func (d *odt) retrieveFileContents(filename string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	return ioutil.ReadAll(reader)
+	return io.ReadAll(reader)
 }
 
 func (d *odt) GetTxt() (content string, err error) {
