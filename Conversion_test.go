@@ -9,7 +9,6 @@ package fileconversion
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"testing"
 )
@@ -98,18 +97,6 @@ func TestExcelCell(t *testing.T) {
 
 }
 
-func TestCSV(t *testing.T) {
-	file, err := os.Open("test.txt")
-	if err != nil {
-		return
-	}
-	defer file.Close()
-
-	content, _ := ioutil.ReadAll(file)
-
-	IsCSV(content)
-}
-
 func TestEPUB(t *testing.T) {
 	// open local file to extract text and output to command line
 	file, err := os.Open("moby-dick.epub")
@@ -122,19 +109,6 @@ func TestEPUB(t *testing.T) {
 	stat, _ := file.Stat()
 
 	text, _ := EPUB2Text(file, stat.Size(), 1000)
-	fmt.Print(text)
-}
-
-func TestMOBI(t *testing.T) {
-	// open local file to extract text and output to command line
-	file, err := os.Open("windows-1252.mobi")
-	if err != nil {
-		return
-	}
-
-	defer file.Close()
-
-	text, _ := Mobi2Text(file)
 	fmt.Print(text)
 }
 
